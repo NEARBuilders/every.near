@@ -1,0 +1,12 @@
+{
+  "description": "Text scroller using iframe\n\n```\n<Widget src=\"efiz.near/widget/marquee\" props={{\n  text: \"Hello World\",\n  fontFamily: \"Arial, sans-serif\",\n  fontSize: \"20px\",\n  textColor: \"white\",\n  backgroundColor: \"black\",\n  height: \"60px\",\n  width: \"100%\",\n}} />\n```\n\n| Property          | Type               | Default Value      |\n|-------------------|--------------------|--------------------|\n| text              | string             | \"Hello World\"      |\n| fontFamily        | string             | \"Arial, sans-serif\"|\n| fontSize          | string             | \"20px\"             |\n| textColor         | string             | \"white\"            |\n| backgroundColor   | string             | \"black\"            |\n| height            | string             | \"60px\"             |\n| width             | string             | \"100%\"             |",
+  "image": {
+    "ipfs_cid": "bafkreiejkgzcdebzszzfymkotg4cyvzcl4p4doxllte46sumo2v22zcwhu"
+  },
+  "name": "Marquee",
+  "tags": {
+    "everything": "",
+    "component": "",
+    "iframe": ""
+  }
+}
