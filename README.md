@@ -1,4 +1,4 @@
-# sdks.near
+# every.near
 
 ## Setup & Development
 
