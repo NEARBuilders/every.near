@@ -13,6 +13,6 @@ jobs:
       app-name: "core"
       deploy-account-address: allthethings.testnet
       signer-account-address: allthethings.testnet
-      signer-public-key: 
+      signer-public-key: ed25519:GTRgkrWDmWqowhuqcekqZdtFLRffXdYXrCMnxuS1kA4w
     secrets: 
       SIGNER_PRIVATE_KEY: ${{ secrets.EVERY_CORE_SIGNER_PRIVATE_KEY_TESTNET }}

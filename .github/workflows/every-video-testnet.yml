@@ -13,6 +13,6 @@ jobs:
       app-name: "video"
       deploy-account-address: video.allthethings.testnet
       signer-account-address: video.allthethings.testnet
-      signer-public-key: 
+      signer-public-key: ed25519:FY9r6LsjygKyTK55KeXNw8sLY29GTSYZJLt3GkvxtoV3
     secrets: 
       SIGNER_PRIVATE_KEY: ${{ secrets.EVERY_VIDEO_SIGNER_PRIVATE_KEY_TESTNET }}
