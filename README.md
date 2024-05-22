@@ -1,26 +1,15 @@
-# sdks.near
+# every.near
 
-## Setup & Development
+## Getting started
 
-Install packages:
-
-```cmd
-yarn
-```
-
-Start development version:
+1. Install packages
 
 ```cmd
-yarn dev
+yarn install
 ```
 
-This will start both a local gateway (http://127.0.0.1:4040) and http server for loading your local components.
+2. Start dev environment
 
-Optionally, to open local widgets in existing, supported gateways:
-
-1. Visit either of the following sites:
-
-- https://near.org/flags
-- https://everything.dev/flags
-
-2. Paste the Bos Loader Http URL (http://127.0.0.1:4040/api/loader)
+```cmd
+yarn run dev
+```

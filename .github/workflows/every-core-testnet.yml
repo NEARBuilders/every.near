@@ -1,0 +1,18 @@
+name: Deploy 'every.near' App Components to Testnet
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  deploy-mainnet:
+    uses: nearbuilders/bos-workspace/.github/workflows/deploy.yml@main
+    with:
+      bw-legacy: false
+      deploy-env: "testnet"
+      app-name: "core"
+      deploy-account-address: allthethings.testnet
+      signer-account-address: allthethings.testnet
+      signer-public-key: 
+    secrets: 
+      SIGNER_PRIVATE_KEY: ${{ secrets.EVERY_CORE_SIGNER_PRIVATE_KEY_TESTNET }}

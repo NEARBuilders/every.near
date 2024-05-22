@@ -1,0 +1,18 @@
+name: Deploy 'every.video.near' App Components to Mainnet
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-mainnet:
+    uses: nearbuilders/bos-workspace/.github/workflows/deploy.yml@main
+    with:
+      bw-legacy: false
+      deploy-env: "mainnet"
+      app-name: "video"
+      deploy-account-address: video.every.near
+      signer-account-address: video.every.near
+      signer-public-key: ed25519:4u1tcYqemMsr84btLphGq5wnUKgPSGgTH1ft8tFPhozB
+    secrets: 
+      SIGNER_PRIVATE_KEY: ${{ secrets.EVERY_VIDEO_SIGNER_PRIVATE_KEY_MAINNET }}

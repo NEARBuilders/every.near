@@ -1,0 +1,18 @@
+name: Deploy 'every.near' App Components to Mainnet
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-mainnet:
+    uses: nearbuilders/bos-workspace/.github/workflows/deploy.yml@main
+    with:
+      bw-legacy: false
+      deploy-env: "mainnet"
+      app-name: "core"
+      deploy-account-address: every.near
+      signer-account-address: every.near
+      signer-public-key: 
+    secrets: 
+      SIGNER_PRIVATE_KEY: ${{ secrets.EVERY_CORE_SIGNER_PRIVATE_KEY_MAINNET }}

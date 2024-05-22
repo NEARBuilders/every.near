@@ -1,0 +1,10 @@
+{
+	"account": "video.every.near",
+	"aliases": ["../../aliases.mainnet.json"],
+  "overrides": {
+    "testnet": {
+      "account": "video.allthethings.testnet",
+      "aliases": ["../../aliases.testnet.json"]
+    }
+  }
+}
