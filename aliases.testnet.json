@@ -1,4 +1,5 @@
 {
   "mob": "mike.testnet",
-  "near": "discom.testnet"
+  "near": "discom.testnet",
+  "devs": "neardevs.testnet"
 }
