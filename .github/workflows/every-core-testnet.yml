@@ -3,6 +3,9 @@ name: Deploy 'every.near' App Components to Testnet
 on:
   push:
     branches: [develop]
+    paths:
+      - apps/core/**
+
 
 jobs:
   deploy-mainnet:

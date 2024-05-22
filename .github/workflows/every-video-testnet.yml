@@ -2,7 +2,9 @@ name: Deploy 'every.video.near' App Components to Testnet
 
 on:
   push:
-    branches: [main]
+    branches: [develop]
+    paths:
+      - apps/video/**
 
 jobs:
   deploy-mainnet:
