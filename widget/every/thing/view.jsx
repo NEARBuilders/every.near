@@ -1,9 +1,6 @@
 const path = props.path; // every piece of data on social contract has a path
 const blockHeight = props.blockHeight || "final"; // and a blockHeight (~version)
 const options = props.options;
-if (!path) {
-  return <p>No path provided.</p>;
-}
 
 // split the path
 const parts = path.split("/");
@@ -11,8 +8,13 @@ const creatorId = parts[0];
 
 let type;
 if (parts.length === 1) {
-  // every root of a path is an account
-  type = "account";
+  if (parts[0].charAt(0) === "#") {
+    // hashtag
+    type = "hashtag";
+  } else {
+    // every root of a path is an account
+    type = "account";
+  }
 } else {
   // otherwise the "standard" is the type (widget, post, type, thing...)
   // for thing, we'll extract the actual "Type" later
@@ -75,20 +77,6 @@ const plugins = {
       },
     },
     src: "efiz.near/widget/every.thing.edit",
-    creatorRequired: true,
-  },
-  EDITV2: {
-    state: {
-      active: {
-        icon: "bi bi-arrow-counterclockwise",
-        label: "Cancel Edit",
-      },
-      inactive: {
-        icon: "bi bi-pencil",
-        label: "Edit v2",
-      },
-    },
-    src: "efiz.near/widget/every.thing.editor.provider",
     creatorRequired: true,
   },
   RAW: {
@@ -168,7 +156,7 @@ const plugins = {
         label: "Camera",
       },
     },
-    src: "efiz.near/widget/Camera",
+    src: "efiz.near/widget/test",
     typeRequired: "every.near/type/marketplace",
   },
 };
@@ -208,11 +196,11 @@ function Modifier() {
     }
   }
 
-  function jutsu() {
+  function nearPad() {
     return (
       <a
         className={`btn`}
-        href={`https://jutsu.ai/editor/${path}`}
+        href={`https://nearpad.dev/editor/${path}`}
         target="_blank"
       >
         <i className=" me-1">
@@ -226,7 +214,7 @@ function Modifier() {
             <path d="M12.16 3h-.32L9.21 8.25h5.58zm4.3 5.25h5.16l-2.07-4.14C19.21 3.43 18.52 3 17.76 3h-3.93l2.63 5.25zm4.92 1.5h-8.63V20.1zM11.25 20.1V9.75H2.62zM7.54 8.25 10.16 3H6.24c-.76 0-1.45.43-1.79 1.11L2.38 8.25h5.16z"></path>
           </svg>
         </i>
-        <span>Open Jutsu</span>
+        <span>Open NEARpad</span>
       </a>
     );
   }
@@ -238,7 +226,7 @@ function Modifier() {
         renderIcon: renderIcon,
         elements:
           type === "widget"
-            ? [jutsu()]
+            ? [nearPad()]
             : Object.keys(plugins)?.map((it) => createButton(it, plugins[it])),
       }}
     />
@@ -258,39 +246,18 @@ function Thing() {
         console.log(
           `edge case: thing ${path} had an invalid type: ${thingType}`
         );
-        typeObj = {
-          widgets: {
-            view: "every.near/widget/app", // this is temp cuz I know it's the app type
-          },
-        };
       }
-      // const { get } = VM.require(thing.adapter || (() => {}));
-
-      // if (get) {
-      //   const passProps = get(thing.reference);
-      //   console.log("passProps", passProps);
-      //   return (<Widget src={widgetSrc} props={passProps} />);
-      // }
       // determine the widget to render this thing (is there a default view?)
       const widgetSrc =
         options?.templateOverride ||
         thing.template?.src ||
         typeObj?.widgets?.view;
       // Template
-      if (!widgetSrc) {
-        return (
-          <Widget
-            src="efiz.near/widget/MonacoEditor"
-            props={{
-              code: JSON.stringify(thing),
-              path,
-              language: "javascript",
-            }}
-          />
-        );
-      }
       return (
-        <Widget src={widgetSrc} props={{ data: thing, path, blockHeight }} />
+        <Widget
+          src={widgetSrc}
+          props={{ data: thing.data, path, blockHeight }}
+        />
       );
     }
     case "post": {
@@ -308,9 +275,7 @@ function Thing() {
       return <Widget src={path} props={props} />;
     }
     case "account": {
-      return (
-        <Widget src="mob.near/widget/ProfilePage" props={{ accountId: path }} />
-      );
+      return <Widget src="efiz.near/widget/Tree" props={{ rootPath: path }} />;
     }
     case "settings": {
       // Standardize path to {accountId}/settings/**
@@ -329,6 +294,14 @@ function Thing() {
         <Widget
           src="every.near/widget/every.type.create"
           props={{ typeSrc: path }}
+        />
+      );
+    }
+    case "hashtag": {
+      return (
+        <Widget
+          src="efiz.near/widget/every.hashtag.view"
+          props={{ hashtag: parts[0].substring(1) }}
         />
       );
     }
