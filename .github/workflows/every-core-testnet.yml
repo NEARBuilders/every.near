@@ -13,6 +13,7 @@ jobs:
     with:
       bw-legacy: false
       deploy-env: "testnet"
+      build-env: "testnet"
       app-name: "every.near"
       deploy-account-address: allthethings.testnet
       signer-account-address: allthethings.testnet

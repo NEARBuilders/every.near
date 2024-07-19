@@ -247,6 +247,7 @@ function Thing() {
           `edge case: thing ${path} had an invalid type: ${thingType}`
         );
       }
+
       // determine the widget to render this thing (is there a default view?)
       const widgetSrc =
         options?.templateOverride ||
