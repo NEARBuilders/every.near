@@ -93,7 +93,7 @@ const Content = () => (
               path: "efiz.near/widget/Tree",
               init: { rootPath: "mob.near" },
             },
-            
+
             poke: {
               path: "pokethe.near/widget/Index",
               init: { rootPath: "root.near" },
