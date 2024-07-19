@@ -4,7 +4,7 @@ on:
   push:
     branches: [develop]
     paths:
-      - apps/core/**
+      - widget/**
 
 
 jobs:
@@ -13,7 +13,7 @@ jobs:
     with:
       bw-legacy: false
       deploy-env: "testnet"
-      app-name: "core"
+      app-name: "every.near"
       deploy-account-address: allthethings.testnet
       signer-account-address: allthethings.testnet
       signer-public-key: ed25519:GTRgkrWDmWqowhuqcekqZdtFLRffXdYXrCMnxuS1kA4w
