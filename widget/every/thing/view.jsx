@@ -252,6 +252,7 @@ function Thing() {
         options?.templateOverride ||
         thing.template?.src ||
         typeObj?.widgets?.view;
+
       // Template
       return (
         <Widget
