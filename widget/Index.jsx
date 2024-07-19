@@ -1,12 +1,12 @@
-const { Layout } = VM.require("devs.near/widget/Layout") || {
+const { Layout } = VM.require("${alias_devs}/widget/Layout") || {
   Layout: () => <>layout not found</>,
 };
 
-const { Router } = VM.require("devs.near/widget/Router") || {
+const { Router } = VM.require("${alias_devs}/widget/Router") || {
   Router: () => <>router not found</>,
 };
 
-const { href } = VM.require("devs.near/widget/lib.url") || {
+const { href } = VM.require("${alias_devs}/widget/lib.url") || {
   href: () => <>function not found</>,
 };
 
@@ -23,7 +23,7 @@ const { accountId, blockHeight } = data && data.length && data[0];
 // };
 
 // const item = {
-//   path: `mob.near/post/main`,
+//   path: `${alias_mob}/post/main`,
 //   blockHeight: "81101335",
 //   type: "social",
 // };
@@ -69,7 +69,7 @@ const Content = () => (
       Header: () => <Header>{page}</Header>,
       Footer: () => (
         <Footer
-          owner={<Widget src="mob.near/widget/ProfileLine" props={{ accountId: "efiz.near" }} />}
+          owner={<Widget src="${alias_mob}/widget/ProfileLine" props={{ accountId: "efiz.near" }} />}
         />
       ),
     }}
@@ -91,9 +91,8 @@ const Content = () => (
             // },
             about: {
               path: "efiz.near/widget/Tree",
-              init: { rootPath: "mob.near" },
+              init: { rootPath: "${alias_mob}" },
             },
-
             poke: {
               path: "pokethe.near/widget/Index",
               init: { rootPath: "root.near" },
@@ -119,7 +118,7 @@ return (
               <NavLink page="about">about</NavLink>
               <NavLink page="poke">poke</NavLink>
               <Widget
-                src="devs.near/widget/GithubForkButton"
+                src="${alias_devs}/widget/GithubForkButton"
                 props={{ username: "nearbuilders", repository: "every.near" }}
               />
             </div>
