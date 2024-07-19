@@ -1,0 +1,18 @@
+{
+  "account": "every.near",
+  "format": true,
+  "index": "every.near/widget/Index",
+  "ipfs": {
+    "gateway": "https://ipfs.near.social/ipfs",
+    "uploadApi": "https://ipfs.near.social/add",
+    "uploadApiHeaders": {}
+  },
+  "aliases": ["./aliases.mainnet.json"],
+  "overrides": {
+    "testnet": {
+      "index": "allthethings.testnet/widget/Index",
+      "account": "allthethings.testnet",
+      "aliases": ["./aliases.testnet.json"]
+    }
+  }
+}
